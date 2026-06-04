@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Funny.</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/TextPlugin.min.js"></script>
+  </head>
+
+  <body>
+    <section id="one">
+      <div class="hero">
+        <div class="heroInner">
+          <div class="wavingHand">👋</div>
+          <div class="heroContent">
+            <h1 class="t">Hello!</h1>
+          </div>
+          <button class="progress" id="progress1">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="two" class="disabled">
+      <div class="hero">
+        <div class="heroInner">
+          <h1 class="t"></h1>
+          <h1 id="sec2hiST1" class="st">
+            Personally, I think it was because of that joke you just made. 🫣
+          </h1>
+          <p id="sec2hiST2" class="st">
+            Yeahh.. probably not one of your best (Or it could be one of your
+            best, no judgement).
+          </p>
+          <button class="progress" id="progress2">&#8594;</button>
+        </div>
+      </div>
+    </section>
+    <section id="three" class="disabled">
+      <div class="hero">
+        <div class="heroInner">
+          <h1 class="t"></h1>
+          <h1 id="sec3hiST1" class="st">
+            Please reconsider the actions that lead you to that joke, and any
+            humor that you may have picked up –
+          </h1>
+          <p id="sec3hiST2" class="st">
+            it didn't inspire any explicit humor or joy.
+          </p>
+          <button id="copyBtn">copy link</button>
+          <br />
+          <p id="credits">
+            - galacticNuclei/aarav saini, and your friend who sent it to you.
+          </p>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
