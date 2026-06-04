@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (name) {
     name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+    document.getElementById("introHello").textContent = `Hello, ${name}!`;
   } else {
     name = "because"; // fallback
   }
 
   document.getElementById("sec3hiST2").textContent =
     `${name}, it didn't inspire any explicit humor or joy.`;
-
   gsap.to(".wavingHand", {
     rotation: 15,
     duration: 0.7,
@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         y: 40,
         opacity: 0,
         duration: 1,
+        filter: "blur(15px)",
         ease: "power2.out",
       });
 
@@ -106,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         x: 40,
         opacity: 0,
         duration: 1,
+        filter: "blur(15px)",
         ease: "power2.out",
       });
     },
@@ -188,14 +190,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const copyBtn = document.getElementById("copyBtn");
 
   copyBtn.addEventListener("click", async () => {
-    const cleanUrl = location.origin + location.pathname + location.search;
+    const url = new URL(window.location.href);
+
+    url.hash = "";
+    url.searchParams.delete("name");
+
+    const cleanUrl = url.toString();
 
     try {
       await navigator.clipboard.writeText(cleanUrl);
-        copyBtn.innerHTML = `copied<br>(tip: send "${location.origin + location.pathname + location.search}?name="Name" for a personalised touch.)`;
-        setTimeout(() => {
-            copyBtn.innerHTML = `copy link`
-        }, 2000);
+
+      copyBtn.innerHTML = `copied<br>(tip: send "${cleanUrl}?name=Name" for a personalised touch.)`;
+
+      setTimeout(() => {
+        copyBtn.innerHTML = `copy link`;
+      }, 2000);
     } catch (err) {
       console.error("Copy failed", err);
     }
